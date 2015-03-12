@@ -133,6 +133,9 @@
     - if attr? :toc
       %script(src="#{deckjsdir}/extensions/toc/deck.toc.js")
       %div(class='deck-toc')
+    - if attr? :notes
+      %script(src="#{deckjsdir}/extensions/deck.js-notes/deck.notes.js")
+      %script(src="#{deckjsdir}/extensions/clone/deck.clone.js")
     - if attr? :customjs
       %script(src="#{attr :customjs, 'customjs.js'}")
     
