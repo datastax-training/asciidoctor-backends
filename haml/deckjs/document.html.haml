@@ -113,6 +113,7 @@
           %input(type='submit' value='Go')
       - if deckjs_version <= '1.0.0'
         %a(href='.' title='Permalink to this slide' class='deck-permalink') #
+      
     %script(src="#{deckjsdir}/jquery.min.js")
     %script(src="#{deckjsdir}/core/deck.core.js")
     - if deckjs_version <= '1.0.0'
@@ -141,6 +142,8 @@
     
 
     %footer
+      .deck-progressbar
+        %span
       .flex-element.deck-notice
         %p &copy; 2015 DataStax Training. Use only with permission.
       - if attr? :status
@@ -162,6 +165,9 @@
 
         $.deck('.slide');
       })(jQuery, 'deck');
-      
 
-    
+    :javascript
+      $(document).bind('deck.change', function(event, from, to) {
+        var width = to / ($.deck('getSlides').length - 1) * 100;
+        $('.deck-progressbar span').css('width', width + '%');
+      });
