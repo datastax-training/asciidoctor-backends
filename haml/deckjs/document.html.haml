@@ -96,9 +96,9 @@
         =content
       - if attr? :navigation
         %div(aria-role='navigation')
-          %a(href='#' class='deck-prev-link' title='Previous') 
+          %a(href='#' class='deck-prev-link' title='Previous')
             %i.icon-chevron-with-circle-left
-          %a(href='#' class='deck-next-link' title='Next') 
+          %a(href='#' class='deck-next-link' title='Next')
             %i.icon-chevron-with-circle-right
       - if attr? :status
         %p.deck-status(aria-role='status')
@@ -113,7 +113,7 @@
           %input(type='submit' value='Go')
       - if deckjs_version <= '1.0.0'
         %a(href='.' title='Permalink to this slide' class='deck-permalink') #
-      
+
     %script(src="#{deckjsdir}/jquery.min.js")
     %script(src="http://d3js.org/d3.v2.js")
     %script(src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js")
@@ -136,6 +136,8 @@
     - if attr? :toc
       %script(src="#{deckjsdir}/extensions/toc/deck.toc.js")
       %div(class='deck-toc')
+    - if attr? :animation
+      %script(src="#{deckjsdir}/extensions/animation/deck.animation.js")
     - if attr? :notes
       %script(src="#{deckjsdir}/extensions/deck.js-notes/deck.notes.js")
       %script(src="#{deckjsdir}/extensions/clone/deck.clone.js")
@@ -144,7 +146,7 @@
     - if attr? :customjs
       %script(src="#{attr :customjs, 'customjs.js'}")
 
-    
+
 
     %footer
       .deck-progressbar
@@ -153,10 +155,10 @@
         %p &copy; 2015 DataStax Training. Use only with permission.
       - if attr? :status
         .flex-element.deck-progress
-          %p< 
+          %p<
             Slide
             %span.deck-status-current
-            of 
+            of
             %span.deck-status-total
 
     :javascript
