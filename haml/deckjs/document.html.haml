@@ -140,6 +140,7 @@
       %script(src="#{deckjsdir}/extensions/animation/deck.animation.js")
     - if attr? :notes
       %script(src="#{deckjsdir}/extensions/deck.js-notes/deck.notes.js")
+      %script(src="#{deckjsdir}/extensions/goto/deck.goto.js")
       %script(src="#{deckjsdir}/extensions/clone/deck.clone.js")
     %script(src="#{deckjsdir}/extensions/svg/svg.min.js")
     %script(src="http://d3js.org/d3.v2.js")
@@ -152,7 +153,7 @@
       .deck-progressbar
         %span
       .flex-element.deck-notice
-        %p &copy; 2015 DataStax Training. Use only with permission.
+        %p &copy; 2015 DataStax. Use only with permission.
       - if attr? :status
         .flex-element.deck-progress
           %p<
