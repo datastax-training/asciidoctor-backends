@@ -67,6 +67,7 @@
     - unless noheader
       -# AsciiDoc leaves an empty header div even if 
       #header
+        .brand
         - if has_header?
           - unless notitle
             %h1=@header.title
