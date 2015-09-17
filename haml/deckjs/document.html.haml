@@ -65,16 +65,15 @@
     %script(src="#{deckjsdir}/modernizr.custom.js")
   %body{:id=>@id, :class=>doctype, :style=>("max-width: #{attr 'max-width'};" if (attr? 'max-width'))}
     .deck-container
-      - if attr :deckjs_theme == 'datastax'
-        .deck-header
-          .flex-element.deck-course
-            %p=@header.title
-          .flex-element.deck-brand
-            %a{:href=>"http://academy.datastax.com", :target=>"blank"} DataStax Academy
-      - unless attr :deckjs_theme == 'summit'
-        .deck-header-summit
-          .deck-progressbar
-            %span
+      .deck-header-summit
+        .deck-progressbar
+          %span
+      .deck-header
+        .flex-element.deck-course
+          %p=@header.title
+        .flex-element.deck-brand
+          %a{:href=>"http://academy.datastax.com", :target=>"blank"} DataStax Academy
+
       - unless noheader
         %section.slide#title-slide
           - unless notitle
@@ -155,26 +154,18 @@
 
 
     %footer
-      - if attr :deckjs_theme == 'datastax'
-        .deck-progressbar
-          %span
-        .flex-element.deck-notice
-          %p &copy; 2015 DataStax. Use only with permission.
-        - if attr? :status
-          .flex-element.deck-progress
-            %p<
-              Slide
-              %span.deck-status-current
-              of
-              %span.deck-status-total
+      .flex-element-summit.deck-course
+        %p<
+          &copy; 2015 DataStax. Use only with permission. &bull; 
+          %span.course-title=@header.title
+      .flex-element-summit.deck-brand
+        %a{:href=>"http://academy.datastax.com", :target=>"blank"} DataStax Academy
+      .deck-progressbar
+        %span
+      .flex-element.deck-notice
+        %p &copy; 2015 DataStax. Use only with permission.
       
-      - unless attr :deckjs_theme == 'summit'
-        .flex-element.deck-course
-          %p<
-            &copy; 2015 DataStax. Use only with permission. &bull; 
-            %span.course-title=@header.title
-        .flex-element.deck-brand
-          %a{:href=>"http://academy.datastax.com", :target=>"blank"} DataStax Academy
+      
 
     :javascript
       (function($, deck, undefined) {
