@@ -65,15 +65,6 @@
     %script(src="#{deckjsdir}/modernizr.custom.js")
   %body{:id=>@id, :class=>doctype, :style=>("max-width: #{attr 'max-width'};" if (attr? 'max-width'))}
     .deck-container
-      .deck-header-summit
-        .deck-progressbar
-          %span
-      .deck-header
-        .flex-element.deck-course
-          %p=@header.title
-        .flex-element.deck-brand
-          %a{:href=>"http://academy.datastax.com", :target=>"blank"} DataStax Academy
-
       - unless noheader
         %section.slide#title-slide
           - unless notitle
@@ -154,18 +145,14 @@
 
 
     %footer
-      .flex-element-summit.deck-course
+      .flex-element.deck-course
         %p<
           &copy; 2015 DataStax. Use only with permission. &bull; 
           %span.course-title=@header.title
-      .flex-element-summit.deck-brand
+      .flex-element.deck-brand
         %a{:href=>"http://academy.datastax.com", :target=>"blank"} DataStax Academy
       .deck-progressbar
         %span
-      .flex-element.deck-notice
-        %p &copy; 2015 DataStax. Use only with permission.
-      
-      
 
     :javascript
       (function($, deck, undefined) {
