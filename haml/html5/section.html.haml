@@ -10,7 +10,8 @@
     - link = %(<a class="link" href="##{@id}">)
 - if slevel == 0
   %h1{:id=>@id, :class=>"sect0"}=%(#{anchor}#{link}#{title}#{link && '</a>'})
-  =content
+  %div.unit-list
+    =content
 - else
   %div{:class=>["sect#{slevel}", role]}
     - snum = @numbered && @caption.nil? && slevel <= (@document.attr 'sectnumlevels', 3).to_i ? %(#{sectnum} ) : nil
